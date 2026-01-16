@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Apology 💔→❤️</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --heart-red: #e10600;
+        --heart-red-light: #ff4d4d;
+        --apology-yellow: #ffd500;
+        --apology-blue: #0055bf;
+        --apology-green: #237841;
+        --apology-orange: #ff7e00;
+        --apology-black: #1b2a34;
+        --apology-white: #ffffff;
+        --apology-gray: #929292;
+      }
+      body {
+        font-family: "Rubik", sans-serif;
+        background-color: var(--apology-white);
+        color: var(--apology-black);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+      }
+      .bg-system {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -100;
+        pointer-events: none;
+      }
+      .bg-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #f0f0f0;
+        background-image: linear-gradient(
+            to right,
+            #e0e0e0 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.3;
+      }
+      .bg-dot {
+        position: absolute;
+        width: 24px;
+        height: 12px;
+        background: var(--apology-yellow);
+        border-radius: 50%;
+        border: 1px solid var(--apology-black);
+        box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        transform-origin: center;
+      }
+      #hero-section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 80px 40px;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--apology-blue) 0%,
+          #0044aa 25%,
+          #0066ff 50%,
+          #0099ff 75%,
+          #66ccff 100%
+        );
+        color: white;
+      }
+      .hero-content {
+        max-width: 1400px;
+        width: 100%;
+        position: relative;
+        z-index: 20;
+        text-align: center;
+      }
+      .hero-container {
+        position: relative;
+        padding: 60px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 25px 75px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        margin: 0 auto 40px;
+        max-width: 1000px;
+        overflow: hidden;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-title-container {
+        position: relative;
+        margin-bottom: 40px;
+        overflow: hidden;
+      }
+      .main-title {
+        font-family: "Bangers", cursive;
+        font-size: 6.5rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 4px 4px 0 var(--apology-black),
+          8px 8px 0 rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+        color: var(--apology-yellow);
+      }
+      .title-underline {
+        width: 0;
+        height: 8px;
+        background: var(--apology-yellow);
+        margin: 0 auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 0 var(--apology-black);
+      }
+      .typewriter-container {
+        position: relative;
+        width: 100%;
+        min-height: 100px;
+      }
+      .typewriter-text {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 3px 3px 0 var(--apology-black);
+        position: relative;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+      }
+      .typewriter-cursor {
+        display: inline-block;
+        width: 4px;
+        height: 2.8rem;
+        background-color: var(--apology-yellow);
+        margin-left: 10px;
+        vertical-align: middle;
+        animation: blink 0.8s infinite, pulse 1.5s infinite;
+        box-shadow: 0 0 10px var(--apology-yellow);
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 10px var(--apology-yellow);
+        }
+        50% {
+          box-shadow: 0 0 20px var(--apology-yellow);
+        }
+      }
+      .emotional-icon {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        z-index: 10;
+        filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.4));
+        transform-origin: center;
+        pointer-events: none;
+      }
+      .icon-1 {
+        top: 15%;
+        left: 8%;
+      }
+      .icon-2 {
+        bottom: 15%;
+        right: 8%;
+      }
+      .hero-scroll-hint {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 1.4rem;
+        text-align: center;
+        animation: floatHint 2.5s infinite ease-in-out;
+        z-index: 100;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px 30px;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+      .hero-scroll-hint:hover {
+        background: rgba(0, 0, 0, 0.6);
+        transform: translateX(-50%) scale(1.05);
+        border-color: var(--apology-yellow);
+      }
+      .hero-scroll-hint i {
+        display: block;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        animation: bounce 2s infinite;
+        color: var(--apology-yellow);
+      }
+      @keyframes floatHint {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-15px);
+        }
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+      #section2 {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 80px 40px;
+        background: linear-gradient(
+          135deg,
+          var(--heart-red) 0%,
+          #8d1310 50%,
+          #ff6666 100%
+        );
+        color: white;
+      }
+      .section-content {
+        max-width: 1200px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+      }
+      .construction-title {
+        font-family: "Bangers", cursive;
+        font-size: 4.5rem;
+        color: var(--apology-yellow);
+        text-align: center;
+        margin-bottom: 60px;
+        text-shadow: 3px 3px 0 var(--apology-black),
+          6px 6px 0 rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+      }
+      .heart-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 40px auto;
+        min-height: 400px;
+      }
+      .heart-container {
+        position: relative;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 60px;
+        border-radius: 20px;
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .heart-container:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 15px;
+        background: var(--apology-yellow);
+        border-radius: 15px 15px 0 0;
+        border-bottom: 3px solid var(--apology-black);
+      }
+      .heart-animation-container {
+        position: relative;
+        width: 242px;
+        height: 216px;
+        margin: 40px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0 0 25px rgba(255, 77, 77, 0.4));
+      }
+   .heartbeat {
+  animation: heartbeat 1.4s ease-in-out infinite;
+
+  transform-origin: center;
+}
+
+
+      .heart-brick {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: var(--heart-red);
+        border-radius: 4px;
+        box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25),
+          0 2px 3px rgba(0, 0, 0, 0.15);
+      }
+      .heart-brick::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        width: 10px;
+        height: 6px;
+        background: var(--heart-red-light);
+        border-radius: 50%;
+      }
+      .construction-status {
+        text-align: center;
+        font-size: 1.5rem;
+        color: var(--apology-yellow);
+        padding: 20px 30px;
+        font-weight: 700;
+        margin-top: 30px;
+        align-items: center;
+        margin: auto;
+        width: fit-content;
+        text-shadow: 2px 2px 0 var(--apology-black);
+      }
+      .section-scroll-hint {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        animation: floatHint 2s infinite ease-in-out;
+        z-index: 100;
+        cursor: pointer;
+        opacity: 0.8;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 12px 25px;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: opacity 0.3s;
+      }
+      .section-scroll-hint:hover {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .section-scroll-hint i {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        animation: bounce 2s infinite;
+      }
+      #section3 {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 80px 40px;
+        background: linear-gradient(
+          135deg,
+          var(--apology-green) 0%,
+          #2e8b57 50%,
+          #5cb85c 100%
+        );
+        color: white;
+      }
+      .message-container {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+        padding: 60px;
+        border: 6px solid var(--apology-yellow);
+        box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+      }
+      .message-container:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 15px;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--heart-red),
+          var(--heart-red) 20px,
+          var(--apology-yellow) 20px,
+          var(--apology-yellow) 40px
+        );
+        border-radius: 25px 25px 0 0;
+      }
+      .apology-title-container {
+        position: relative;
+        min-height: 120px;
+        margin-bottom: 40px;
+      }
+      .apology-title {
+        font-family: "Bangers", cursive;
+        font-size: 4rem;
+        color: var(--apology-yellow);
+        text-align: center;
+        margin-bottom: 40px;
+        text-shadow: 3px 3px 0 var(--apology-black);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 1.2;
+      }
+      .title-cursor {
+        display: inline-block;
+        width: 6px;
+        height: 4rem;
+        background-color: var(--apology-yellow);
+        margin-left: 5px;
+        vertical-align: middle;
+        animation: blink 0.5s infinite;
+        box-shadow: 0 0 15px var(--apology-yellow);
+      }
+      .message-block {
+        background: var(--apology-white);
+        color: var(--apology-black);
+        padding: 40px;
+        border-radius: 15px;
+        border: 5px solid var(--apology-black);
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+        font-size: 1.8rem;
+        line-height: 1.8;
+        text-align: center;
+        font-weight: 700;
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .message-block:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        right: 20px;
+        height: 15px;
+        background: var(--heart-red);
+        border-radius: 10px 10px 0 0;
+        border: 3px solid var(--apology-black);
+      }
+      .message-line {
+        margin-bottom: 10px;
+        opacity: 0;
+        transform: translateY(10px);
+        min-height: 30px;
+      }
+      .message-line-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1.8rem;
+        background-color: var(--heart-red);
+        margin-left: 5px;
+        vertical-align: middle;
+        animation: blink 0.7s infinite;
+      }
+      .forgive-text {
+        color: var(--heart-red);
+        font-size: 2.2rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 30px;
+        text-shadow: 2px 2px 0 var(--apology-black);
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      #section4 {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 80px 40px;
+        background: linear-gradient(
+          135deg,
+          var(--apology-orange) 0%,
+          #ff7e00 50%,
+          #ffb366 100%
+        );
+        color: white;
+      }
+      .final-title {
+        font-family: "Bangers", cursive;
+        font-size: 4.5rem;
+        color: var(--apology-blue);
+        text-align: center;
+        margin-bottom: 60px;
+        text-shadow: 3px 3px 0 var(--apology-black),
+          6px 6px 0 rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+      }
+      .talk-button {
+        background: var(--apology-blue);
+        color: white;
+        border: none;
+        padding: 30px 80px;
+        font-size: 2.5rem;
+        border-radius: 15px;
+        cursor: pointer;
+        font-family: "Bangers", cursive;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 6px solid var(--apology-black);
+        box-shadow: 0 15px 0 var(--apology-black),
+          0 30px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .talk-button:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+      }
+      .talk-button:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 0 var(--apology-black),
+          0 40px 40px rgba(0, 0, 0, 0.4);
+        background: #0066cc;
+      }
+      .talk-button:active {
+        transform: translateY(5px);
+        box-shadow: 0 10px 0 var(--apology-black),
+          0 20px 20px rgba(0, 0, 0, 0.3);
+      }
+      .button-icon {
+        margin-right: 20px;
+        font-size: 2.8rem;
+      }
+      .response-message {
+        text-align: center;
+        font-size: 2.2rem;
+        color: var(--apology-yellow);
+        background: rgba(0, 0, 0, 0.3);
+        padding: 30px 40px;
+        border-radius: 20px;
+        border: 4px solid var(--apology-yellow);
+        font-weight: 700;
+        margin-top: 40px;
+        display: none;
+        text-shadow: 2px 2px 0 var(--apology-black);
+        font-family: "Bangers", cursive;
+        letter-spacing: 1px;
+      }
+      .response-message.show {
+        display: block;
+        animation: messagePop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      @keyframes messagePop {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+      }
+      .caption {
+        margin-top: 20px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--apology-yellow);
+        text-shadow: 2px 2px 0 var(--apology-black);
+        font-family: "Bangers", cursive;
+        letter-spacing: 1px;
+      }
+      @media (max-width: 1200px) {
+        .main-title {
+          font-size: 5rem;
+        }
+        .construction-title,
+        .final-title {
+          font-size: 4rem;
+        }
+        .apology-title {
+          font-size: 3.5rem;
+        }
+      }
+      @media (max-width: 768px) {
+        #hero-section,
+        #section2,
+        #section3,
+        #section4 {
+          padding: 60px 20px;
+        }
+        .hero-container {
+          padding: 40px 20px;
+          min-height: 300px;
+        }
+        .main-title {
+          font-size: 3.8rem;
+        }
+        .typewriter-text {
+          font-size: 2rem;
+        }
+        .construction-title,
+        .final-title {
+          font-size: 3.5rem;
+        }
+        .heart-animation-container {
+          width: 200px;
+          height: 178px;
+          margin: 20px auto;
+        }
+        .heart-brick {
+          width: 14px;
+          height: 14px;
+        }
+        .heart-brick::before {
+          width: 8px;
+          height: 5px;
+          top: 2px;
+          left: 3px;
+        }
+        .message-block {
+          font-size: 1.5rem;
+          padding: 30px;
+          min-height: 350px;
+        }
+        .message-line {
+          min-height: 25px;
+        }
+        .talk-button {
+          padding: 25px 50px;
+          font-size: 2rem;
+        }
+        .apology-title {
+          font-size: 3rem;
+        }
+        .message-container {
+          padding: 40px 20px;
+        }
+        .caption {
+          font-size: 1.4rem;
+        }
+        .emotional-icon {
+          width: 120px;
+          height: 120px;
+        }
+      }
+      @media (max-width: 480px) {
+        .main-title {
+          font-size: 3rem;
+        }
+        .typewriter-text {
+          font-size: 1.6rem;
+        }
+        .construction-title,
+        .final-title {
+          font-size: 2.8rem;
+        }
+        .heart-animation-container {
+          width: 180px;
+          height: 160px;
+        }
+        .heart-brick {
+          width: 12px;
+          height: 12px;
+        }
+        .heart-brick::before {
+          width: 7px;
+          height: 4px;
+          top: 2px;
+          left: 2.5px;
+        }
+        .message-block {
+          font-size: 1.3rem;
+          padding: 20px;
+          min-height: 300px;
+        }
+        .message-line {
+          min-height: 22px;
+        }
+        .talk-button {
+          padding: 20px 40px;
+          font-size: 1.8rem;
+        }
+        .apology-title {
+          font-size: 2.5rem;
+        }
+        .emotional-icon {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-system" id="bgSystem">
+      <div class="bg-pattern"></div>
+    </div>
+    <section id="hero-section">
+      <div class="emotional-icon icon-1" id="icon1">
+        <svg viewBox="0 0 150 150">
+          <path
+            d="M75,30 C55,10 25,15 25,40 C25,70 75,110 75,110 C75,110 125,70 125,40 C125,15 95,10 75,30 Z"
+            fill="#E10600"
+            stroke="#1B2A34"
+            stroke-width="3"
+          />
+          <path
+            d="M75,110 L75,30"
+            stroke="#1B2A34"
+            stroke-width="2"
+            stroke-dasharray="5,5"
+          />
+          <path d="M40,70 L110,70" stroke="#1B2A34" stroke-width="3" />
+          <path
+            d="M50,120 Q55,130 60,120 Q55,125 50,120 Z"
+            fill="#0055BF"
+            opacity="0.7"
+          />
+        </svg>
+      </div>
+      <div class="emotional-icon icon-2" id="icon2">
+        <svg viewBox="0 0 150 150">
+          <circle
+            cx="75"
+            cy="75"
+            r="65"
+            fill="#FFD700"
+            stroke="#1B2A34"
+            stroke-width="3"
+          />
+          <circle cx="55" cy="60" r="8" fill="#1B2A34" />
+          <circle cx="95" cy="60" r="8" fill="#1B2A34" />
+          <path
+            d="M50,100 Q75,85 100,100"
+            stroke="#1B2A34"
+            stroke-width="5"
+            fill="none"
+          />
+          <path d="M40,40 L45,35" stroke="#1B2A34" stroke-width="2" />
+          <path d="M110,40 L105,35" stroke="#1B2A34" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="hero-content">
+        <div class="hero-container">
+          <div class="main-title-container">
+            <div class="main-title" id="mainTitle"></div>
+            <div class="title-underline" id="titleUnderline"></div>
+          </div>
+          <div class="typewriter-container" id="typewriterContainer">
+            <div class="typewriter-text" id="typewriterText"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" onclick="scrollToSection('section2')">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+    <section id="section2">
+      <div class="section-content">
+        <h2 class="construction-title">This Heart Beats Only For You</h2>
+        <div class="heart-wrap">
+          <div class="heart-container">
+            <div class="heart-animation-container" id="heartAnimationContainer"></div>
+          </div>
+        </div>
+        <div class="construction-status" id="constructionStatus">
+          Scroll down to see my message
+        </div>
+      </div>
+      <div class="section-scroll-hint" onclick="scrollToSection('section3')">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+    <section id="section3">
+      <div class="section-content">
+        <div class="message-container">
+          <div class="apology-title-container">
+            <div class="apology-title" id="apologyTitle"></div>
+          </div>
+          <div class="message-block" id="messageBlock">
+            <div class="message-line" id="line1"></div>
+            <div class="message-line" id="line2"></div>
+            <div class="message-line" id="line3"></div>
+            <div class="message-line" id="line4"></div>
+            <div class="message-line" id="line5"></div>
+            <div class="message-line" id="line6"></div>
+            <div class="message-line" id="line7"></div>
+            <div class="message-line" id="line8"></div>
+            <div class="forgive-text" id="forgiveText">Please forgive me</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-scroll-hint" onclick="scrollToSection('section4')">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+    <section id="section4">
+      <div class="section-content">
+        <h2 class="final-title">Let's be Together</h2>
+        <div style="text-align: center">
+          <button class="talk-button" id="talkButton">
+            <span class="button-icon">💬</span>
+            Can We Please Talk Now?
+          </button>
+          <div class="response-message" id="responseMessage">
+            Thank you for giving me a chance <br />
+            I'm always here baby <br />
+            💖
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
+      function createBackground() {
+        const bgSystem = document.getElementById("bgSystem");
+        for (let row = 0; row < 15; row++) {
+          for (let col = 0; col < 25; col++) {
+            const dot = document.createElement("div");
+            dot.className = "bg-dot";
+            const x = col * 4 + Math.random() * 1;
+            const y = row * 7 + Math.random() * 1;
+            dot.style.left = `${x}%`;
+            dot.style.top = `${y}%`;
+            const hue = Math.random() * 30 - 15;
+            dot.style.filter = `hue-rotate(${hue}deg) brightness(${
+              0.85 + Math.random() * 0.3
+            })`;
+            gsap.to(dot, {
+              y: () => Math.random() * 20 - 10,
+              x: () => Math.random() * 10 - 5,
+              rotation: () => Math.random() * 15 - 7.5,
+              duration: 4 + Math.random() * 3,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              delay: Math.random() * 3,
+            });
+            bgSystem.appendChild(dot);
+          }
+        }
+      }
+      function createHeroAnimations() {
+        const title = document.getElementById("mainTitle");
+        const text = document.getElementById("typewriterText");
+        title.textContent = "I'm Sorry";
+        text.textContent = "I";
+        gsap.set(".hero-container", {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        });
+        const tl = gsap.timeline();
+        tl.from(".hero-container", {
+          opacity: 0,
+          scale: 0.96,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+        tl.to(
+          "#titleUnderline",
+          {
+            width: "260px",
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
+        typeWriterEffect();
+        gsap.fromTo(
+          ["#icon1", "#icon2"],
+          {
+            opacity: 0,
+            scale: 0.7,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "back.out(1.6)",
+          }
+        );
+        gsap.to("#icon1", {
+          y: "+=16",
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+        gsap.to("#icon2", {
+          y: "-=14",
+          duration: 3.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+      let heartBuilt = false;
+      function buildHeartWhenVisible() {
+        if (heartBuilt) return;
+        const heartContainer = document.getElementById(
+          "heartAnimationContainer"
+        );
+        const brickSize = 18;
+        const status = document.getElementById("constructionStatus");
+        const heartMap = [
+          " 111 111 ",
+          "111111111",
+          "111111111",
+          "111111111",
+          "111111111",
+          " 1111111 ",
+          "  11111  ",
+          "   111   ",
+          "    1   ",
+        ];
+        const bricks = [];
+        status.textContent = "Every beat belongs to you";
+        heartContainer.innerHTML = "";
+        const heartWidth = 9 * brickSize;
+        const heartHeight = 8 * brickSize;
+        heartMap.forEach((row, y) => {
+          [...row].forEach((cell, x) => {
+            if (cell === "1") {
+              const brick = document.createElement("div");
+              brick.className = "heart-brick";
+              const centerX = (heartContainer.offsetWidth - heartWidth) / 2;
+              const centerY = (heartContainer.offsetHeight - heartHeight) / 2;
+              brick.style.left = `${centerX + x * brickSize}px`;
+              brick.style.top = `${centerY + y * brickSize}px`;
+              heartContainer.appendChild(brick);
+              bricks.push({
+                el: brick,
+                row: y,
+                col: x,
+              });
+            }
+          });
+        });
+        const top = bricks.filter((b) => b.row <= 1);
+        const upperMiddle = bricks.filter((b) => b.row > 1 && b.row <= 3);
+        const lowerMiddle = bricks.filter((b) => b.row > 3 && b.row < 5);
+        const bottom = bricks.filter((b) => b.row >= 5);
+        function animateGroup(group, fromX, fromY, delay) {
+          group.forEach((b, i) => {
+            gsap.fromTo(
+              b.el,
+              {
+                opacity: 0,
+                x: fromX,
+                y: fromY,
+                scale: 0.85,
+              },
+              {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                duration: 0.4,
+                delay: delay + i * 0.012,
+                ease: "power2.out",
+              }
+            );
+          });
+        }
+        animateGroup(top, 0, -80, 0);
+        animateGroup(
+          upperMiddle.filter((b) => b.col < 4),
+          -60,
+          0,
+          0.2
+        );
+        animateGroup(
+          upperMiddle.filter((b) => b.col > 4),
+          60,
+          0,
+          0.2
+        );
+        animateGroup(
+          lowerMiddle.filter((b) => b.col < 4),
+          -40,
+          0,
+          0.4
+        );
+        animateGroup(
+          lowerMiddle.filter((b) => b.col > 4),
+          40,
+          0,
+          0.4
+        );
+        animateGroup(bottom, 0, 60, 0.6);
+        setTimeout(() => {
+          gsap.fromTo(
+            ".heart-brick",
+            { y: -2 },
+            {
+              y: 0,
+              duration: 0.3,
+              stagger: 0.01,
+              ease: "sine.out",
+            }
+          );
+        //   caption.textContent = "My heart beats for you ❤️";
+          setTimeout(() => {
+            startHeartBeat();
+            createHeartCelebration();
+            heartBuilt = true;
+          }, 400);
+        }, 800);
+      }
+      function createHeartCelebration() {
+        for (let i = 0; i < 15; i++) {
+          const heart = document.createElement("div");
+          heart.innerHTML = "❤️";
+          heart.style.position = "absolute";
+          heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.top = `${Math.random() * 100}%`;
+          heart.style.zIndex = "5";
+          heart.style.pointerEvents = "none";
+          heart.style.opacity = "0";
+          heart.style.filter = "drop-shadow(2px 2px 2px rgba(0,0,0,0.3))";
+          document.getElementById("section2").appendChild(heart);
+          gsap.to(heart, {
+            y: -100,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: Math.random() * 0.5,
+            onComplete: () => heart.remove(),
+          });
+        }
+      }
+      function typeWriterEffect() {
+        const textElement = document.getElementById("typewriterText");
+        const messages = [
+          "I'm truly sorry for hurting you...",
+          "I never meant to make you feel this way...",
+          "You mean everything to me...",
+          "Let me make it right with my heart...",
+        ];
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 60;
+        function type() {
+          const currentMessage = messages[messageIndex];
+          if (isDeleting) {
+            textElement.textContent = currentMessage.substring(
+              0,
+              charIndex - 1
+            );
+            charIndex--;
+            typingSpeed = 30;
+          } else {
+            textElement.textContent = currentMessage.substring(
+              0,
+              charIndex + 1
+            );
+            charIndex++;
+            typingSpeed = 60;
+          }
+          textElement.innerHTML += '<span class="typewriter-cursor"></span>';
+          if (!isDeleting && charIndex % 3 === 0) {
+            playTypewriterSound();
+          }
+          if (!isDeleting && charIndex === currentMessage.length) {
+            typingSpeed = 2000;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            messageIndex = (messageIndex + 1) % messages.length;
+            typingSpeed = 400;
+          }
+          setTimeout(type, typingSpeed);
+        }
+        setTimeout(type, 500);
+      }
+      function typeApologyLines() {
+        const lines = [
+          "I know I messed up.",
+          "Hurting you was never my intention.",
+          "",
+          "Every mistake I made came from carelessness,",
+          "not from a lack of love.",
+          "",
+          "You mean more to me than my pride,",
+          "and I truly want to make things right.",
+        ];
+        const elements = [
+          line1,
+          line2,
+          line3,
+          line4,
+          line5,
+          line6,
+          line7,
+          line8,
+        ];
+        elements.forEach((el) => {
+          el.textContent = "";
+          el.style.opacity = 1;
+        //   el.style.transform = "translateY(6px)";
+        });
+        let lineIndex = 0;
+        let charIndex = 0;
+        const CHAR_SPEED = 14;
+        const LINE_PAUSE = 28;
+        function typeChar() {
+          if (lineIndex >= lines.length) {
+            gsap.to("#forgiveText", {
+              opacity: 1,
+              scale: 1,
+              duration: 0.8,
+              ease: "power3.out",
+            });
+            return;
+          }
+          const text = lines[lineIndex];
+          const el = elements[lineIndex];
+          if (charIndex < text.length) {
+            el.textContent += text[charIndex];
+            charIndex++;
+            setTimeout(typeChar, CHAR_SPEED);
+          } else {
+            gsap.to(el, {
+              y: 0,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+            lineIndex++;
+            charIndex = 0;
+            setTimeout(typeChar, LINE_PAUSE);
+          }
+        }
+        setTimeout(typeChar, 0);
+      }
+      function typeApologyTitle() {
+        const titleElement = document.getElementById("apologyTitle");
+        const titleText = "My Heartfelt Apology";
+        let charIndex = 0;
+        const typingSpeed = 10;
+        function type() {
+          if (charIndex < titleText.length) {
+            titleElement.textContent = titleText.substring(0, charIndex + 1);
+            charIndex++;
+            titleElement.innerHTML += '<span class="title-cursor"></span>';
+            if (charIndex % 2 === 0) {
+              playTypewriterSound();
+            }
+            setTimeout(type, typingSpeed);
+          } else {
+            titleElement.innerHTML = titleText;
+            gsap.to(titleElement, {
+              textShadow:
+                "3px 3px 0 var(--apology-black), 0 0 20px var(--apology-yellow)",
+              duration: 0.3,
+              repeat: 1,
+              yoyo: true,
+              onComplete: () => {
+                typeApologyLines();
+              },
+            });
+          }
+        }
+        setTimeout(type, 300);
+      }
+      function makeIconsHappy() {
+        const icon1 = document.getElementById("icon1");
+        icon1.innerHTML = `
+                <svg viewBox="0 0 150 150">
+                    <path d="M75,30 C55,10 25,15 25,40 C25,70 75,110 75,110 C75,110 125,70 125,40 C125,15 95,10 75,30 Z" 
+                          fill="#E10600" stroke="#1B2A34" stroke-width="3"/>
+                    <circle cx="50" cy="45" r="3" fill="#FFD700">
+                        <animate attributeName="r" values="3;5;3" dur="1s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="100" cy="45" r="2" fill="#FFD700">
+                        <animate attributeName="r" values="2;4;2" dur="1.2s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>
+            `;
+        const icon2 = document.getElementById("icon2");
+        icon2.innerHTML = `
+                <svg viewBox="0 0 150 150">
+                    <circle cx="75" cy="75" r="65" fill="#FFD700" stroke="#1B2A34" stroke-width="3"/>
+                    <circle cx="55" cy="60" r="8" fill="#1B2A34"/>
+                    <circle cx="95" cy="60" r="8" fill="#1B2A34"/>
+                    <path d="M50,100 Q75,120 100,100" stroke="#1B2A34" stroke-width="5" fill="none"/>
+                    <circle cx="45" cy="85" r="6" fill="#FF4D4D" opacity="0.6"/>
+                    <circle cx="105" cy="85" r="6" fill="#FF4D4D" opacity="0.6"/>
+                </svg>
+            `;
+        gsap.to(["#icon1", "#icon2"], {
+          scale: 1.2,
+          duration: 0.6,
+          yoyo: true,
+          repeat: 1,
+          ease: "back.out(1.7)",
+        });
+        gsap.killTweensOf(["#icon1", "#icon2"]);
+        gsap.to("#icon1", {
+          y: "+=25",
+          rotation: -8,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+        gsap.to("#icon2", {
+          y: "-=20",
+          rotation: 8,
+          duration: 2.3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.3,
+        });
+      }
+      function playTypewriterSound() {
+        try {
+          const audioContext = new (window.AudioContext ||
+            window.webkitAudioContext)();
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+          oscillator.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          oscillator.type = "sine";
+          oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+          gainNode.gain.setValueAtTime(0.03, audioContext.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioContext.currentTime + 0.05
+          );
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + 0.05);
+        } catch (e) {}
+      }
+      function playClickSound() {
+        try {
+          const audioContext = new (window.AudioContext ||
+            window.webkitAudioContext)();
+          for (let i = 0; i < 2; i++) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillator.type = "sine";
+            oscillator.frequency.setValueAtTime(
+              800 + i * 100,
+              audioContext.currentTime
+            );
+            oscillator.frequency.exponentialRampToValueAtTime(
+              400,
+              audioContext.currentTime + 0.1
+            );
+            gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.15
+            );
+            oscillator.start(audioContext.currentTime + i * 0.02);
+            oscillator.stop(audioContext.currentTime + 0.15 + i * 0.02);
+          }
+        } catch (e) {}
+      }
+      document
+        .getElementById("talkButton")
+        .addEventListener("click", function () {
+          const button = this;
+          const response = document.getElementById("responseMessage");
+          playClickSound();
+          gsap.to(button, {
+            scale: 0.95,
+            duration: 0.1,
+            yoyo: true,
+            repeat: 1,
+            onComplete: () => {
+              button.innerHTML =
+                '<span class="button-icon">💖</span> Thank You Love';
+              button.style.background = "var(--apology-green)";
+              response.classList.add("show");
+              makeIconsHappy();
+              createCelebration();
+            },
+          });
+        });
+      function createCelebration() {
+        const shapes = ["❤️", "💛", "💙", "💚", "🧡", "⭐", "✨"];
+        for (let i = 0; i < 30; i++) {
+          const shape = document.createElement("div");
+          shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+          shape.style.position = "fixed";
+          shape.style.fontSize = `${Math.random() * 30 + 20}px`;
+          shape.style.left = `${Math.random() * 100}vw`;
+          shape.style.top = "100vh";
+          shape.style.zIndex = "9999";
+          shape.style.pointerEvents = "none";
+          shape.style.opacity = "0";
+          shape.style.filter = "drop-shadow(3px 3px 2px rgba(0,0,0,0.3))";
+          document.body.appendChild(shape);
+          gsap.to(shape, {
+            y: -(Math.random() * 300 + 200),
+            x: Math.random() * 200 - 100,
+            rotation: Math.random() * 720,
+            opacity: 1,
+            duration: 2 + Math.random(),
+            ease: "power2.out",
+            onComplete: () => shape.remove(),
+          });
+        }
+      }
+      function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+          behavior: "smooth",
+        });
+        playClickSound();
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        createBackground();
+        createHeroAnimations();
+        ScrollTrigger.create({
+          trigger: "#section2",
+          start: "top center",
+          end: "bottom center",
+          onEnter: () => buildHeartWhenVisible(),
+          once: true,
+        });
+        ScrollTrigger.create({
+          trigger: "#section3",
+          start: "top center",
+          end: "bottom center",
+          onEnter: () => {
+            typeApologyTitle();
+          },
+          once: true,
+        });
+        setTimeout(() => {
+          gsap.to(".section-scroll-hint", {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+          });
+        }, 2000);
+      });
+      window.addEventListener("resize", () => {
+        ScrollTrigger.refresh();
+      });
+      function startHeartBeat() {
+    const heartContainer = document.getElementById("heartAnimationContainer");
+    if (heartContainer) {
+        heartContainer.classList.add('heartbeat');
+    }
+}
+   
+   </script>
+  </body>
+</html>
